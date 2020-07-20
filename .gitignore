@@ -113,7 +113,7 @@ dmypy.json
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-*/[Ll]ibrary/
+lostInCity3D/[Ll]ibrary/
 */[Tt]emp/
 */[Oo]bj/
 */[Bb]uild/
