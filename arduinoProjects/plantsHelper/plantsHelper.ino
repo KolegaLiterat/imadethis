@@ -10,7 +10,7 @@ Unused config for axis changes in joystick
 //JOYSTICK CONFIG END
 
 //SENSOR CONFIG START
-DHT dht(3, DHT22);
+DHT dht(3, DHT11);
 //SENSOR CONFIT END
 
 void setup() {
