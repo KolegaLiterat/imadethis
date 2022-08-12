@@ -38,6 +38,17 @@ byte sparkle[8] = {
   B10100010,
   B00001010,
   };
+
+byte umbrella[8] = {
+  B00111100,
+  B01111110,
+  B11111111,
+  B11111111,
+  B00001000,
+  B00001000,
+  B00101000,
+  B00010000,
+  };
 //LED MATRIX CONFIG STOP
 
 void setup() {
@@ -66,6 +77,8 @@ void loop() {
     delay(1000);
     led_matrix.clearDisplay(0);
     print_picture(sparkle);
+    delay(1000);
+    print_picture(umbrella);
     delay(1000);
     led_matrix.clearDisplay(0);
   }
