@@ -76,11 +76,14 @@ void loop() {
     } else if (check_humidity(humidity) == 3) {
       print_picture(umbrella);
     }
+    
     Serial.println("Humidity: ");
     Serial.println(humidity);
 
     Serial.println("Temperature: ");
     Serial.println(dht.readTemperature());
+
+    clear_screens();
   }
 }
 
@@ -109,4 +112,10 @@ void print_picture(byte character [])
   {
     led_matrix.setRow(0, i, character[i]);
   }
+}
+
+void clear_screens()
+{
+  delay(1500);
+  led_matrix.clearDisplay(0);
 }
