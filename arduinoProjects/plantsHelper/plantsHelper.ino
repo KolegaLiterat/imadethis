@@ -27,6 +27,17 @@ byte cloud[8] = {
   B01001001,
   B10010010,
   };
+  
+byte sparkle[8] = {
+  B00100100,
+  B00100001,
+  B01110000,
+  B11111010,
+  B01110010,
+  B00100111,
+  B10100010,
+  B00001010,
+  };
 //LED MATRIX CONFIG STOP
 
 void setup() {
@@ -52,6 +63,9 @@ void loop() {
     Serial.println(dht.readTemperature());
 
     print_picture(cloud);
+    delay(1000);
+    led_matrix.clearDisplay(0);
+    print_picture(sparkle);
     delay(1000);
     led_matrix.clearDisplay(0);
   }
