@@ -68,13 +68,19 @@ void loop() {
 
   if (joystick_state == 0) {
     int humidity = dht.readHumidity();
+    
+    if (check_humidity(humidity) == 1) {
+      print_picture(cloud);
+    } else if (check_humidity(humidity) == 2) {
+      print_picture(sparkle);
+    } else if (check_humidity(humidity) == 3) {
+      print_picture(umbrella);
+    }
     Serial.println("Humidity: ");
     Serial.println(humidity);
 
     Serial.println("Temperature: ");
     Serial.println(dht.readTemperature());
-
-    Serial.println(check_humidity(humidity));
   }
 }
 
@@ -95,7 +101,6 @@ int check_humidity(int humidity) {
   } else if (humidity > 60) {
     return state = 3;
   }
-  
 }
 
 void print_picture(byte character [])
