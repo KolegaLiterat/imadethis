@@ -67,20 +67,14 @@ void loop() {
   int joystick_state = get_state();
 
   if (joystick_state == 0) {
+    int humidity = dht.readHumidity();
     Serial.println("Humidity: ");
-    Serial.println(dht.readHumidity());
+    Serial.println(humidity);
 
     Serial.println("Temperature: ");
     Serial.println(dht.readTemperature());
 
-    print_picture(cloud);
-    delay(1000);
-    led_matrix.clearDisplay(0);
-    print_picture(sparkle);
-    delay(1000);
-    print_picture(umbrella);
-    delay(1000);
-    led_matrix.clearDisplay(0);
+    Serial.println(check_humidity(humidity));
   }
 }
 
@@ -89,6 +83,19 @@ int get_state()
   int switch_state = digitalRead(JOYSTICK_SWITCH);
 
   return switch_state;
+}
+
+int check_humidity(int humidity) {
+  int state = 0;
+  
+  if (humidity < 50) {
+    return state = 1;
+  } else if (humidity >= 50 && humidity <= 60) {
+    return state = 2;
+  } else if (humidity > 60) {
+    return state = 3;
+  }
+  
 }
 
 void print_picture(byte character [])
